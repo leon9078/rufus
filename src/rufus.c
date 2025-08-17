@@ -1554,7 +1554,7 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
 				char* iso_image = lmprintf(MSG_036);
 				char* dd_image = lmprintf(MSG_095);
 				// If the ISO is small enough to be written as an ESP and we are using GPT add the ISO → ESP option
-				if ((img_report.projected_size < MAX_ISO_TO_ESP_SIZE) && HAS_REGULAR_EFI(img_report) &&
+				if ((!img_report.has_4GB_file) && HAS_REGULAR_EFI(img_report) &&
 					(partition_type == PARTITION_STYLE_GPT) && IS_FAT(fs_type)) {
 					char* choices[3] = { lmprintf(MSG_276, iso_image), lmprintf(MSG_277, "ISO → ESP"), lmprintf(MSG_277, dd_image) };
 					i = SelectionDialog(lmprintf(MSG_274, "ISOHybrid"), lmprintf(MSG_275, iso_image, dd_image, iso_image, dd_image), choices, 3);
@@ -1710,7 +1710,7 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
 			}
 		}
 
-		if ((img_report.projected_size < MAX_ISO_TO_ESP_SIZE) && HAS_REGULAR_EFI(img_report) &&
+		if ((!img_report.has_4GB_file) && HAS_REGULAR_EFI(img_report) &&
 			(partition_type == PARTITION_STYLE_GPT) && IS_FAT(fs_type) && !esp_already_asked) {
 			// The ISO is small enough to be written as an ESP and we are using GPT
 			// so ask the users if they want to write it as an ESP.
