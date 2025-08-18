@@ -6,9 +6,9 @@ https://github.com/pbatard/rufus/wiki/Localization#Editing_an_existing_translati
 Or simply download https://files.akeo.ie/pollock/pollock-1.5.exe and follow its directions.
 
 o v4.? (????.??.??) ** NOT FINAL!!! PLEASE DO NOT SEND UNSOLICITED TRANSLATIONS! **
+  - *UPDATED*  MSG_310 "The ISO you have selected uses UEFI and is small enough to be written as an EFI System Partition (ESP). " -> "The ISO you have selected uses UEFI and does not have a >4GB file, so it can be written as an EFI System Partition (ESP). "
   - *UPDATED*  MSG_337 "An additional file ('diskcopy.dll') must be downloaded from Microsoft to install MS-DOS:" -> "An additional file ('%s') must be downloaded from Microsoft to use this feature:"
   // NB: I used Google translate to update existing messages, so please check for accuracy!
-  - *UPDATED*  MSG_310 "The ISO you have selected uses UEFI and is small enough to be written as an EFI System Partition (ESP). " -> "The ISO you have selected uses UEFI and does not have a >4GB file so it can be written as an EFI System Partition (ESP). "
   - *NEW*      MSG_350 "Use 'Windows UEFI CA 2023' signed bootloaders [EXPERIMENTAL]"
   - *NEW*      MSG_351 "Checking for UEFI bootloader revocation..."
   - *NEW*      MSG_352 "Checking for UEFI DBX updates..."
