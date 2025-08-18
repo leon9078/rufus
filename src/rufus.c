@@ -1553,7 +1553,8 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
 				// but only do so if persistence has not been selected.
 				char* iso_image = lmprintf(MSG_036);
 				char* dd_image = lmprintf(MSG_095);
-				// If the ISO does not have a >4GB file to be written as an ESP and we are using GPT add the ISO → ESP option
+				// The ISO does not have a >4GB file, so it can be written as an ESP and we are using GPT
+				// so ask the users if they want to write it as an ESP.
 				if ((!img_report.has_4GB_file) && HAS_REGULAR_EFI(img_report) &&
 					(partition_type == PARTITION_STYLE_GPT) && IS_FAT(fs_type)) {
 					char* choices[3] = { lmprintf(MSG_276, iso_image), lmprintf(MSG_277, "ISO → ESP"), lmprintf(MSG_277, dd_image) };
@@ -1712,7 +1713,7 @@ static DWORD WINAPI BootCheckThread(LPVOID param)
 
 		if ((!img_report.has_4GB_file) && HAS_REGULAR_EFI(img_report) &&
 			(partition_type == PARTITION_STYLE_GPT) && IS_FAT(fs_type) && !esp_already_asked) {
-			// The ISO does not have a >4GB file to be written as an ESP and we are using GPT
+			// The ISO does not have a >4GB file, so it can be written as an ESP and we are using GPT
 			// so ask the users if they want to write it as an ESP.
 			char* iso_image = lmprintf(MSG_036);
 			char* choices[2] = { lmprintf(MSG_276, iso_image), lmprintf(MSG_277, "ISO → ESP") };
